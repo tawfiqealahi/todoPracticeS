@@ -1,15 +1,19 @@
 const input = document.querySelector('#itemInput');
+const lists = [];
 
 input.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         const {value} = input;
         // console.log(value); 
         const todo = {
+            _id: lists.length+1,
             name: value,
             isDone: false,
             date: new Date().toLocaleDateString(),
         } 
-        addToDB(todo);
+        // addToDB(todo);
+        lists.push(todo);
+        console.log(lists);
     }
 });
 
@@ -43,7 +47,7 @@ input.addEventListener('keypress', function(e) {
 </li>
     `
     ul.appendChild(div);
-    console.log(div);
+    // console.log(div);
     // console.log(li);
  }
 
