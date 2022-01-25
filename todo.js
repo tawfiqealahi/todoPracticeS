@@ -1,6 +1,6 @@
 const input = document.querySelector('#itemInput');
 const lists = [];
-
+const ul = document.getElementById('itemList');
 input.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         const {value} = input;
@@ -13,16 +13,14 @@ input.addEventListener('keypress', function(e) {
         } 
         // addToDB(todo);
         lists.push(todo);
-        console.log(lists);
+        // console.log(lists);
+        showlist();
     }
 });
-
 // show  input value
-
  function addToDB(todo){
     //  i can also distructure the todo object given above       ( const {name, isdone, date} = todo; } )
     //  console.log(todo);
-    const ul = document.getElementById('itemList');
     const div = document.createElement('div');
     div.innerHTML =`
     <li class="list-group-item mb-2">
@@ -49,7 +47,14 @@ input.addEventListener('keypress', function(e) {
     ul.appendChild(div);
     // console.log(div);
     // console.log(li);
- }
+ };
+//  
+function showlist(){
+    ul.textContent = '';
+    lists.forEach((todo) =>{
+        addToDB(todo);
+    })
+}
 
 
 
