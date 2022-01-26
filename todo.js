@@ -1,5 +1,5 @@
 const input = document.querySelector('#itemInput');
-const lists = [];
+let lists = [];
 const ul = document.getElementById('itemList');
 input.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
@@ -31,7 +31,7 @@ input.addEventListener('keypress', function(e) {
         </div>
         <div class="col-lg-2">
             <div class="d-flex align-items-center">
-                <button class="fas fa-trash-alt badge bg-danger del-btn btn-sm" data-id="1">
+                <button onclick="test(${todo._id})" class="fas fa-trash-alt badge bg-danger del-btn btn-sm" data-id="${todo._id}">
                     ::
             </button>
                 <button class="fas fa-check badge bg-primary done-btn btn-sm" data-id="1">
@@ -55,7 +55,14 @@ function showlist(){
         addToDB(todo);
     })
 }
-
+//  delete mathod
+function test(id) {
+    // console.log(id);
+    const deleted = lists.filter(todo => todo._id !== parseInt(id));
+    lists = deleted;
+    // console.log('ok');
+    showlist();
+}
 
 
 
