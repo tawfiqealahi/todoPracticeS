@@ -26,7 +26,7 @@ input.addEventListener('keypress', function(e) {
     <li class="list-group-item mb-2">
     <div class="row">
         <div class="col">
-        <span class="">${todo.name} </span>
+        <span class="${todo.isDone ? "done" : "" }">${todo.name} </span>
             <span class="text-muted">${todo.date}</span>
         </div>
         <div class="col-lg-2">
@@ -69,7 +69,7 @@ function handleDone(id) {
     const done = lists.find(todo => todo._id == id);
     done.isDone = !done.isDone;
     console.log(lists);
-    // showlist();
+    showlist();
 }
 
 
