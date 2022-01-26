@@ -34,7 +34,7 @@ input.addEventListener('keypress', function(e) {
                 <button onclick="test(${todo._id})" class="fas fa-trash-alt badge bg-danger del-btn btn-sm" data-id="${todo._id}">
                     ::
             </button>
-                <button class="fas fa-check badge bg-primary done-btn btn-sm" data-id="1">
+                <button onclick="handleDone(${todo._id})" class="fas fa-check badge bg-primary done-btn btn-sm" data-id="1">
                     ::
             </button>
         </div>
@@ -58,11 +58,20 @@ function showlist(){
 //  delete mathod
 function test(id) {
     // console.log(id);
-    const deleted = lists.filter(todo => todo._id !== parseInt(id));
+    const deleted = lists.filter(todo => todo._id !== id);
     lists = deleted;
     // console.log('ok');
     showlist();
 }
+// done mathod
+function handleDone(id) {
+    // console.log(id);
+    const done = lists.find(todo => todo._id == id);
+    done.isDone = !done.isDone;
+    console.log(lists);
+    // showlist();
+}
+
 
 
 
