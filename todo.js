@@ -1,4 +1,4 @@
-const input = document.qurySelector('')
+const input = document.qurySelector('input')
 
 
 
