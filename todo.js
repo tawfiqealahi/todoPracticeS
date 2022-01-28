@@ -1,4 +1,12 @@
-const input = document.qurySelector('input')
+const input = document.querySelector('#itemInput');
+
+input.addEventListener('keypress', function (e){
+    if(e.key=== 'Enter' ){
+        const {value} = input;
+        console.log(value);
+    }
+})
+
 
 
 
