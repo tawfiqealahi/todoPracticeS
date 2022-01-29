@@ -53,8 +53,8 @@ function showLists(){
         addToDB(todo);
     });
     };
-    
-    // delete item
+
+    // delete mathod
     function handleDelete(id){
         const deleted = lists.filter(todo => todo._id !== id);
         lists = deleted;
