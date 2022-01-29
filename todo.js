@@ -17,6 +17,7 @@ input.addEventListener('keypress', function (e){
     showLists();
     input.value ='';
 }});
+
 // show input value
 function addToDB(todo){
     const div = document.createElement('div');
@@ -51,7 +52,8 @@ function showLists(){
     lists.forEach(todo => {
         addToDB(todo);
     });
-    }
+    };
+    
     // delete item
     function handleDelete(id){
         const deleted = lists.filter(todo => todo._id !== id);
