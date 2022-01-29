@@ -96,7 +96,7 @@ function showLists(){
 //         </div>
 //         <div class="col-lg-2">
 //             <div class="d-flex align-items-center">
-//                 <button onclick="test(${todo._id})" class="fas fa-trash-alt badge bg-danger del-btn btn-sm" data-id="${todo._id}">
+//                 <button onclick="handleDelete(${todo._id})" class="fas fa-trash-alt badge bg-danger del-btn btn-sm" data-id="${todo._id}">
 //                     ::
 //             </button>
 //                 <button onclick="handleDone(${todo._id})" class="fas fa-check badge bg-primary done-btn btn-sm" data-id="1">
@@ -121,7 +121,7 @@ function showLists(){
 //     })
 // }
 // //  delete mathod
-// function test(id) {
+// function handleDelete(id) {
 //     // console.log(id);
 //     const deleted = lists.filter(todo => todo._id !== id);
 //     lists = deleted;
