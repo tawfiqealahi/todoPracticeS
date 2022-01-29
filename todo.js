@@ -60,7 +60,7 @@ function showLists(){
     // done method
     function handleDone(id){
         const done = lists.find(todo => todo._id == id);
-        done.isDone = false;
+        done.isDone = true;
         showLists();
     } 
 // const input = document.querySelector('#itemInput');
