@@ -2,6 +2,7 @@ const input = document.querySelector('#itemInput');
 const ul = document.querySelector('#itemList');
 let lists = [];
 
+
 input.addEventListener('keypress', function (e){
     if(e.key=== 'Enter' ){
         const {value} = input;
@@ -82,6 +83,7 @@ function showLists(){
 //         showlist();
 //     }
 // });
+
 // // show  input value
 //  function addToDB(todo){
 //     //  i can also distructure the todo object given above       ( const {name, isdone, date} = todo; } )
