@@ -12,7 +12,9 @@ input.addEventListener('keypress', function (e){
             isComplete: false,
             date: new Date().toLocaleString()
 }
-    addToDB(todo);
+    lists.push(todo);
+    showLists();
+    input.value ='';
 }});
 // show input value
 function addToDB(todo){
@@ -26,7 +28,7 @@ function addToDB(todo){
             </div>
             <div class="col-lg-2">
                 <div class="d-flex align-items-center">
-                    <button onclick="test(${todo._id})" class="fas fa-trash-alt badge bg-danger del-btn btn-sm" data-id="${todo._id}">
+                    <button onclick="handleDelete(${todo._id})" class="fas fa-trash-alt badge bg-danger del-btn btn-sm" data-id="${todo._id}">
                         ::
                 </button>
                     <button onclick="handleDone(${todo._id})" class="fas fa-check badge bg-primary done-btn btn-sm" data-id="1">
@@ -40,13 +42,27 @@ function addToDB(todo){
     </li>
     `
     ul.appendChild(div);
-    console.log(div);
-
+    // console.log(div);
 }
-
-
-
-
+// show in lists
+function showLists(){
+    ul.textContent ='';
+    lists.forEach(todo => {
+        addToDB(todo);
+    });
+    }
+    // delete item
+    function handleDelete(id){
+        const deleted = lists.filter(todo => todo._id !== id);
+        lists = deleted;
+        showLists();
+    }
+    // done method
+    function handleDone(id){
+        const done = lists.find(todo => todo._id == id);
+        done.isDone = false;
+        showLists();
+    } 
 // const input = document.querySelector('#itemInput');
 // let lists = [];
 // const ul = document.getElementById('itemList');
@@ -97,7 +113,7 @@ function addToDB(todo){
 //     // console.log(div);
 //     // console.log(li);
 //  };
-// //  
+// //  show as list
 // function showlist(){
 //     ul.textContent = '';
 //     lists.forEach((todo) =>{
